@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+    mongodb:
+        container_name: groovy-db
+        image: mongo
+        restart: always
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=passwd123!
+
+        ports: 
+            - '27017:27017'
+
+    redis:
+        image: 'bitnami/redis:latest'
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+        ports:
+            - '6379:6379'
